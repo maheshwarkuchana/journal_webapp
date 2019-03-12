@@ -32,14 +32,14 @@ def get_entries():
     sql_query = """select * from Diary """
     return execute_query(sql_query).fetchall()
 
-def edit_entry(text1,id):
+def edit_entry(text1,text2,id):
 
     """
     function to edit the diary entry and title
     :param id: id of the diary entry
     :return: None
     """
-    sql_query = """UPDATE Diary set journalentry='%s' where id=%s""" % (text1, id)
+    sql_query = """UPDATE Diary set title= '%s', journalentry='%s' where id=%s""" % (text1, text2, id)
     execute_query(sql_query)
     return execute_query(sql_query).fetchall()
 

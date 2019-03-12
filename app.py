@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from db_functions import add_entry, get_entries, edit_entry, fetch_entry
 from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = 'some_secret'
 
 
 @app.route('/')
@@ -28,12 +29,13 @@ def add():
 
     if str(date1) not in list1:
         add_entry(text1=request.form['title'], text2=request.form['details'], date1=datetime.date(datetime.now()))
-        msg = "Added succesfully"
-        return redirect(url_for('index', msg=msg))
+        flash('Entry added successfully. If you want to make changes, please edit.')
+
+        return redirect(url_for('index'))
     else:
 
-        msg = " OOps. the journal entry exists already. Would you like to edit ?"
-        return redirect(url_for('index', msg=msg))
+        flash('Oops!!! Journal entry exists for this day already. Would you like to edit?')
+        return redirect(url_for('index'))
 
 
 
@@ -42,10 +44,11 @@ def add():
 def fetch(id):
     if request.method == "POST":
         print(request.method)
-        text1=request.form['details']
+        text1=request.form['title']
+        text2=request.form['details']
         print(text1)
 
-        entries = edit_entry(text1, id=id)
+        entries = edit_entry(text1, text2, id=id)
         print(entries)
         return redirect(url_for('index'))
 

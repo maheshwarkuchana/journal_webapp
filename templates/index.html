@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include "header.html" %}
+
 <body>
+
+
+
 <div class="container">
-    <h1>Journal Entries</h1>
-    <div>Add a Journal Entry:
+    <div class="jumbotron">
 
-        {% if msg %}
+    <h2 align="center">Welcome to the Journal App!! Happy Journaling !!!</h2>
+        <br>
 
-        <p> mesage is : {{ msg }} </p>
+        <h4>Add a Journal Entry:</h4>
 
-        {% endif %}
 
 
         <form action="{{ url_for('add') }}" method="POST">
@@ -22,27 +25,36 @@
             <br>
             <br>
             <input type="submit" value="Add Entry">
+            <br>
+            <br>
         </form>
-    </div>
 
     <div>
-        <h2>Journal Entries</h2>
-        <div>
+    {% extends "layout.html" %}
+    <br>
+    <br>
+    </div>
+    {% block body %}
 
-            {% for entry in entries %}
-             <p>Journal entry for {{ entry[3] }}</p>
+    <div>
 
-            <p> {{ entry[1] }} </p>
-            <p>{{ entry[2] }} </p>
-            <a href="{{ url_for('fetch', id=entry[0]) }}" > Edit </a>
-            {% endfor %}
-        </div>
+        {% for entry in entries %}
+        <br>
 
+         <h4>Journal entry for {{ entry[3] }}</h4>
 
+        <p> {{ entry[1] }} </p>
+        <p>{{ entry[2] }} </p>
+        <a href="{{ url_for('fetch', id=entry[0]) }}" > Edit </a>
+        {% endfor %}
+    </div>
 
     </div>
-	</div>
-</body>
+</div>
+
+
 
 </body>
+
+{% endblock %}
 </html>
