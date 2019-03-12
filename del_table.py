@@ -9,4 +9,5 @@ DELETE from Diary
 
 """
 conn.execute(sql_query)
+conn.commit()
 conn.close()

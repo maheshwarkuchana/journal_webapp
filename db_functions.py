@@ -20,6 +20,7 @@ def add_entry(text1,text2,date1):
     :param text: text input by the user
     :return: None
     """
+
     sql_query = """insert into Diary(title, journalentry, journaldate) VALUES ( '%s','%s','%s' )""" % (text1, text2, date1)
     execute_query(sql_query)
 
@@ -29,4 +30,27 @@ def get_entries():
     :return:
     """
     sql_query = """select * from Diary """
+    return execute_query(sql_query).fetchall()
+
+def edit_entry(text1,id):
+
+    """
+    function to edit the diary entry and title
+    :param id: id of the diary entry
+    :return: None
+    """
+    sql_query = """UPDATE Diary set journalentry='%s' where id=%s""" % (text1, id)
+    execute_query(sql_query)
+    return execute_query(sql_query).fetchall()
+
+
+def fetch_entry(id):
+
+    """
+    function to edit the diary entry and title
+    :param id: id of the diary entry
+    :return: None
+    """
+    sql_query = """select * from Diary where id= %s""" % (id)
+    execute_query(sql_query)
     return execute_query(sql_query).fetchall()
