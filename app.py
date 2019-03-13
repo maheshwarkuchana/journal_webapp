@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from db_functions import add_entry, get_entries, edit_entry, fetch_entry
+from db_functions import add_entry, get_entries, edit_entry, fetch_entry, search_entry
 from datetime import datetime
 
 app = Flask(__name__)
@@ -40,6 +40,8 @@ def add():
 
 
 
+
+
 @app.route('/edit/<id>', methods=['GET','POST'])
 def fetch(id):
     if request.method == "POST":
@@ -58,6 +60,17 @@ def fetch(id):
         print(request.method)
         print("PICKING ENTRIES" ,entries)
         return render_template("edit.html", entries=entries)
+
+
+
+
+@app.route('/search', methods=['GET','POST'])
+def search():
+    if request.method == 'POST':
+        entries = search_entry(date1 =request.form['search_date'])
+        return render_template('search_results.html', entries=entries)
+
+
 
 
 if __name__ == '__main__':

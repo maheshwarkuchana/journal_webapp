@@ -3,8 +3,7 @@
 {% include "header.html" %}
 <body>
 <div class="container">
-
-
+    <div class="jumbotron">
         <div>
 
             {% for entry in entries %}
@@ -13,12 +12,12 @@
 
 
             <form action="{{ url_for('fetch', id=entry[0]) }}" method="POST">
-            <textarea rows="1" cols="50" name="title">{{entry[1] }}</textarea>
+            <textarea rows="1" cols="50" name="title"required>{{entry[1] }}</textarea>
             <br>
 
             <h4> Journal Entry </h4>
 
-            <textarea rows = "5" cols = "50" name = "details"> {{ entry[2] }}</textarea>
+            <textarea rows = "5" cols = "50" name = "details" required> {{ entry[2] }}</textarea>
             <br>
             <br>
             <input type="submit" value="Save" >
@@ -33,5 +32,5 @@
 	</div>
 </body>
 
-</body>
+
 </html>

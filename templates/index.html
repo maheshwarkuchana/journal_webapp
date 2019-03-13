@@ -11,17 +11,28 @@
 
     <h2 align="center">Welcome to the Journal App!! Happy Journaling !!!</h2>
         <br>
+            <div class="'container text-right">
+            <form action="{{ url_for('search') }}"  method="POST">
+            <input type="text"  cols = "30" name="search_date" placeholder="Enter Date:YYYY-MM-DD" style="width: 180px;" required>
+            <input type="submit" value="Search">
 
-        <h4>Add a Journal Entry:</h4>
+            </form>
+
+            </div>
+            <br>
+
+        <h4>ADD A JOURNAL ENTRY </h4>
 
 
 
         <form action="{{ url_for('add') }}" method="POST">
-            <input type="text" name="title">
-            <br>
-            <br>
 
-            <textarea rows = "5" cols = "50" name = "details"> Enter your text here!</textarea>
+            <label> Title </label><br>
+            <input type="text"  name="title" required>
+            <br>
+            <br>
+            <label> Journal Entry </label><br>
+            <textarea rows = "5" cols = "50" name = "details" required> Enter your text here!</textarea>
             <br>
             <br>
             <input type="submit" value="Add Entry">
@@ -56,5 +67,5 @@
 
 </body>
 
-{% endblock %}
+    {% endblock %}
 </html>

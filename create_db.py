@@ -2,6 +2,8 @@ import sqlite3
 
 conn = sqlite3.connect('diary.db')
 
+# Creating the table Diary
+
 sql_query = """
 CREATE TABLE IF NOT EXISTS Diary (
   id INTEGER PRIMARY KEY,
@@ -11,4 +13,8 @@ CREATE TABLE IF NOT EXISTS Diary (
 );
 """
 conn.execute(sql_query)
+
+
+conn.commit()
 conn.close()
+

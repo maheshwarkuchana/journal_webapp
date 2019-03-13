@@ -54,3 +54,14 @@ def fetch_entry(id):
     sql_query = """select * from Diary where id= %s""" % (id)
     execute_query(sql_query)
     return execute_query(sql_query).fetchall()
+
+def search_entry(date1):
+    """
+       function to search the diary using date
+       :param date1: date of the diary entry
+       :return: None
+       """
+
+    sql_query = """select * from Diary where journaldate= '%s'""" % (date1)
+    execute_query(sql_query)
+    return execute_query(sql_query).fetchall()

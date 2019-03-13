@@ -1,4 +1,4 @@
-
+#Deletes all entries in the table.
 import sqlite3
 
 

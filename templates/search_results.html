@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+
+<body>
+
+<<div class="container">
+    <div class="jumbotron">
+        <div>
+
+        {% for entry in entries %}
+        <br>
+
+         <h3>Journal entry for {{ entry[3] }}</h3>
+
+        Title :<p> {{ entry[1] }} </p>
+        Entry: <p>{{ entry[2] }} </p>
+
+        <br>
+        <a href="{{ url_for('fetch', id=entry[0]) }}" > Edit </a> &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{{ url_for('index') }}" > Home </a>
+
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
