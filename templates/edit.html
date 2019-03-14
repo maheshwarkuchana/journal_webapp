@@ -3,7 +3,7 @@
 {% include "header.html" %}
 <body>
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron text-white" style="background-color: #F5F5DC;">
         <div>
 
             {% for entry in entries %}
@@ -20,7 +20,7 @@
             <textarea rows = "5" cols = "50" name = "details" required> {{ entry[2] }}</textarea>
             <br>
             <br>
-            <input type="submit" value="Save" >
+            <input type="submit" class="btn btn-primary btn-sm" value="Save" >
             </form>
 
             <p> </p>

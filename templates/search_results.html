@@ -4,8 +4,8 @@
 
 <body>
 
-<div class="container">
-    <div class="jumbotron">
+<div class="container" >
+    <div class="jumbotron text-white" style="background-color: #F5F5DC;">
     <h2 align="center">Welcome to the Journal App!! Happy Journaling !!!</h2>
     <br>
 
@@ -19,18 +19,22 @@
             {% for entry in entries %}
             <br>
 
-             <h3>Journal entry for {{ entry[3] }}</h3>
+            <h4>Journal entry for {{ entry[3] }}</h4>
+            <br>
+            <h4><i> {{ entry[1] }}</i></h4> <br>
 
-            Title :<p> {{ entry[1] }} </p>
-            Entry: <p>{{ entry[2] }} </p>
+            <p>{{ entry[2] }} </p>
 
             <br>
-            <a href="{{ url_for('fetch', id=entry[0]) }}" > Edit </a> &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="{{ url_for('index') }}" > Home </a>
+             <a class="btn btn-primary btn-sm" href="{{ url_for('fetch', id=entry[0]) }}" role="button"> Edit </a> &nbsp; &nbsp; &nbsp; &nbsp;
 
             {% endfor %}
          {% endif %}
 
+
+
+
+        <a class="btn btn-primary btn-sm" href="{{ url_for('index') }}" role="button">  Home </a>
 
     {% endblock %}
     </div>

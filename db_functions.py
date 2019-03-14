@@ -17,7 +17,7 @@ def execute_query(sql_query):
 def add_entry(text1,text2,date1):
     """
     function to add jounral entry title and text into the database
-    :param text: text input by the user
+    :param text1: title, text2: Journal entry input by the user date1: date when the entry was made
     :return: None
     """
 
