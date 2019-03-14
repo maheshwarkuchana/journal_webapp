@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body>
+<div class="container">
+    <div class="jumbotron text-white" style="background-color: #F5F5DC;">
+        <div>
+
+            {% for entry in entries %}
+            <h2>Journal entry for {{ entry[3] }}</h2>
+            <h4> Title </h4>
+
+
+            <form action="{{ url_for('fetch', id=entry[0]) }}" method="POST">
+            <textarea rows="1" cols="50" name="title"required>{{entry[1] }}</textarea>
+            <br>
+
+            <h4> Journal Entry </h4>
+
+            <textarea rows = "5" cols = "50" name = "details" required> {{ entry[2] }}</textarea>
+            <br>
+            <br>
+            <input type="submit" class="btn btn-primary btn-sm" value="Save" >
+            </form>
+
+            <p> </p>
+            {% endfor %}
+        </div>
+
+
+
+	</div>
+</body>
+
+
+</html>
