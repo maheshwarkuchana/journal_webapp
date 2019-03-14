@@ -13,7 +13,11 @@
         <br>
             <div class="'container text-right">
             <form action="{{ url_for('search') }}"  method="POST">
-            <input type="text"  cols = "30" name="search_date" placeholder="Enter Date:YYYY-MM-DD" style="width: 180px;" required>
+
+
+            <br>
+            <input type="text"  cols = "30" name="search_date" style=" width:180px;" data-toggle="tooltip"
+                   data-placement="top" title="Date format YYYY-MM-DD!" required>
             <input type="submit" value="Search">
 
             </form>
@@ -32,7 +36,7 @@
             <br>
             <br>
             <label> Journal Entry </label><br>
-            <textarea rows = "5" cols = "50" name = "details" required> Enter your text here!</textarea>
+            <textarea rows = "5" cols = "50" name = "details" required> </textarea>
             <br>
             <br>
             <input type="submit" value="Add Entry">

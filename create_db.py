@@ -1,20 +1,23 @@
 import sqlite3
 
-conn = sqlite3.connect('diary.db')
 
-# Creating the table Diary
+def create_db():
 
-sql_query = """
-CREATE TABLE IF NOT EXISTS Diary (
-  id INTEGER PRIMARY KEY,
-  title TEXT,
-  journalentry TEXT,
-  journaldate TEXT UNIQUE
-);
-"""
-conn.execute(sql_query)
+    conn = sqlite3.connect('diary.db')
+
+    # Creating the table Diary
+
+    sql_query = """
+    CREATE TABLE IF NOT EXISTS Diary (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      journalentry TEXT,
+      journaldate TEXT UNIQUE
+    );
+    """
+    conn.execute(sql_query)
 
 
-conn.commit()
-conn.close()
+    conn.commit()
+    conn.close()
 
